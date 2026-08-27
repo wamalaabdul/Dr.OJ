@@ -1,0 +1,11 @@
+{
+  "title": "Dr. OJ Veterinary Clinic · Kampala",
+  "description": "Compassionate, precision-driven veterinary care for livestock and pets across Kampala and beyond.",
+  "robots": {
+    "index": true
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
