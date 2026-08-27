@@ -309,9 +309,17 @@ body {
 .img-zoom {
   transition: transform 8s ease;
   transform: scale(1.08);
+  filter: brightness(1.08) contrast(1.05);
 }
 .img-zoom:hover {
   transform: scale(1);
+}
+/* Mobile: reset zoom so full image is visible and bright */
+@media (max-width: 767px) {
+  .img-zoom {
+    transform: scale(1);
+    filter: brightness(1.12) contrast(1.06);
+  }
 }
 
 /* ── Input styling ── */
