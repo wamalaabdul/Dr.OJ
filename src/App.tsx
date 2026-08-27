@@ -1195,12 +1195,27 @@ function Footer({ setPage }: { setPage: (p: Page) => void }) {
 }
 
 // ─── ROOT ──────────────────────────────────────────────────────────────────
-export default function App() {
+ export default function App() {
   const [page, setPage] = useState<Page>("home");
 
   const navigateTo = useCallback((p: Page) => {
     setPage(p);
     window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.pushState({ page: p }, "", `#${p}`);
+  }, []);
+
+  useEffect(() => {
+    // Set the very first history entry so the initial page is also "back-able"
+    window.history.replaceState({ page: "home" }, "", "#home");
+
+    const handlePopState = (e: PopStateEvent) => {
+      const targetPage = (e.state?.page as Page) || "home";
+      setPage(targetPage);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   return (
