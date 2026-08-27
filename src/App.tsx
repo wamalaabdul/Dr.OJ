@@ -449,7 +449,7 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
               },
             ].map((s) => (
               <div key={s.title} className="glass rounded-3xl overflow-hidden card-hover cursor-pointer border border-[#10b981]/40 shadow-[0_0_22px_rgba(16,185,129,0.22)]" onClick={() => setPage("services")}>
-                <div className="h-52 overflow-hidden">
+                <div className="relative h-52 overflow-hidden">
                   <img src={s.img} alt={s.title} className="w-full h-full object-cover img-zoom" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#03070f]/80 to-transparent" />
                 </div>
