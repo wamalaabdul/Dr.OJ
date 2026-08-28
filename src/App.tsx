@@ -98,7 +98,7 @@ function Nav({ page, setPage }: { page: Page; setPage: (p: Page) => void }) {
           </div>
           <div className="text-left">
             <div className="font-display text-lg font-semibold gold-text leading-none">Dr. Okello Joseph</div>
-            <div className="text-xs text-white/40 tracking-widest uppercase mt-0.5">Veterinarian · Kampala</div>
+            <div className="text-xs text-white/60 tracking-widest uppercase mt-0.5">Veterinarian · Kampala</div>
           </div>
         </button>
 
@@ -111,7 +111,7 @@ function Nav({ page, setPage }: { page: Page; setPage: (p: Page) => void }) {
                 className={`relative px-5 py-2 text-sm font-medium tracking-wide transition-all duration-300 rounded-full ${
                   page === l.id
                     ? "text-[#10b981]"
-                    : "text-white/60 hover:text-white"
+                    : "text-white/80 hover:text-white"
                 }`}
               >
                 {l.label}
@@ -133,7 +133,7 @@ function Nav({ page, setPage }: { page: Page; setPage: (p: Page) => void }) {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden text-white/70 hover:text-white p-2"
+          className="md:hidden text-[#10b981] p-2"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <div className="space-y-1.5">
@@ -146,17 +146,17 @@ function Nav({ page, setPage }: { page: Page; setPage: (p: Page) => void }) {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden border-t border-[#10b981]/20 px-6 py-4 space-y-2" style={{background:'rgba(2,5,10,0.92)',backdropFilter:'blur(40px)',WebkitBackdropFilter:'blur(40px)'}}>
-          {links.map((l) => (
-            <button
-              key={l.id}
-              onClick={() => { setPage(l.id); setMenuOpen(false); }}
-              className={`block w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all ${
-                page === l.id ? "text-[#10b981] bg-[#10b981]/10" : "text-white/60"
-              }`}
-            >
-              {l.label}
-            </button>
+        <div className="md:hidden border-t border-[#10b981]/20 px-6 py-4 space-y-2" style={{background:'rgba(2,5,10,0.95)',backdropFilter:'blur(40px)',WebkitBackdropFilter:'blur(40px)'}}>
+            {links.map((l) => (
+              <button
+                key={l.id}
+                onClick={() => { setPage(l.id); setMenuOpen(false); }}
+                className={`block w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+                  page === l.id ? "text-[#10b981] bg-[#10b981]/10" : "text-white/70"
+                }`}
+              >
+                {l.label}
+              </button>
           ))}
         </div>
       )}
@@ -251,9 +251,9 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
               />
             </div>
           ))}
-          {/* Multi-layer overlay: heavy at left for text, clear at right for image visibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#03070f] via-[#03070f]/75 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#03070f]/60 via-transparent to-[#03070f]/30" />
+          {/* Multi-layer overlay: only covers left side where text sits, images stay visible on right */}
+          <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#03070f] via-[#03070f]/80 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#03070f]/50 via-transparent to-transparent" />
         </div>
 
         {/* ── LAYER 2: Decorative particles + rings ── */}
@@ -287,7 +287,7 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
                 <span className="block text-white">the Best.</span>
               </h1>
 
-              <p className="text-white/55 text-base md:text-lg leading-relaxed max-w-md mb-8 animate-fade-in-left delay-400">
+              <p className="text-white/90 text-base md:text-lg leading-relaxed max-w-md mb-8 animate-fade-in-left delay-400">
                 Compassionate, precision-driven veterinary care for livestock and
                 pets across Kampala and beyond — treating every animal as if it were my own.
               </p>
@@ -316,7 +316,7 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
                 ].map((st) => (
                   <div key={st.label}>
                     <AnimatedCounter target={st.n} suffix={st.s} />
-                    <div className="text-white/40 text-xs mt-1 tracking-wide">{st.label}</div>
+                    <div className="text-white/50 text-xs mt-1 tracking-wide">{st.label}</div>
                   </div>
                 ))}
               </div>
@@ -360,8 +360,8 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
 
                 {/* Doctor photo — perfectly static */}
                 <div
-                  className="relative rounded-3xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.7),0_0_60px_rgba(16,185,129,0.12)]"
-                  style={{ aspectRatio: "3/4", background: "#0e1a2e" }}
+                  className="relative rounded-3xl overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.1),0_0_60px_rgba(16,185,129,0.08)]"
+                  style={{ aspectRatio: "3/4", background: "#eef2f0" }}
                 >
                   <img
                     src={IMG.doctorHero}
@@ -374,13 +374,13 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
                   {/* Name card inside photo */}
                   <div className="absolute bottom-0 left-0 right-0 px-5 pb-3">
                     <div className="glass rounded-2xl px-4 py-3">
-                      <div className="font-display text-base font-semibold text-white leading-tight">Dr. Okello Joseph</div>
+                      <div className="font-display text-base font-semibold text-[#10231c] leading-tight">Dr. Okello Joseph</div>
                       <div className="text-[#10b981] text-[10px] font-bold tracking-[0.2em] uppercase mt-0.5">Licensed Veterinarian · Kampala</div>
                       <div className="flex items-center gap-1 mt-2">
                         {[1,2,3,4,5].map(s => (
                           <svg key={s} width="11" height="11" viewBox="0 0 12 12" fill="#10b981"><path d="M6 0l1.5 3.5L11 4.5l-2.5 2.4.6 3.5L6 8.7 2.9 10.4l.6-3.5L1 4.5l3.5-1z"/></svg>
                         ))}
-                        <span className="text-white/45 text-[10px] ml-1">5.0 · 120 reviews</span>
+                        <span className="text-[#10231c]/40 text-[10px] ml-1">5.0 · 120 reviews</span>
                       </div>
                     </div>
                   </div>
@@ -394,9 +394,9 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
         </div>
 
         {/* Scroll cue */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-float opacity-50">
-          <span className="text-white/30 text-[10px] tracking-widest uppercase">Scroll</span>
-          <div className="w-px h-10 bg-gradient-to-b from-[#10b981] to-transparent" />
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 animate-float">
+          <span className="text-white/80 text-sm tracking-[0.3em] uppercase font-semibold">Scroll</span>
+          <div className="w-px h-14 bg-gradient-to-b from-[#10b981] to-transparent" />
         </div>
       </section>
 
@@ -421,7 +421,7 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-[#10b981] text-xs font-bold tracking-[0.3em] uppercase mb-4">What I Offer</div>
-            <h2 className="font-display text-5xl md:text-6xl font-bold text-white">
+            <h2 className="font-display text-5xl md:text-6xl font-bold text-[#10231c]">
               Comprehensive <span className="italic gold-text">Care</span>
             </h2>
             <div className="gold-line w-24 mx-auto mt-6" />
@@ -448,15 +448,15 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
                 img: IMG.clinic,
               },
             ].map((s) => (
-              <div key={s.title} className="glass rounded-3xl overflow-hidden card-hover cursor-pointer border border-[#10b981]/40 shadow-[0_0_22px_rgba(16,185,129,0.22)]" onClick={() => setPage("services")}>
+              <div key={s.title} className="service-card rounded-3xl overflow-hidden cursor-pointer" onClick={() => setPage("services")}>
                 <div className="relative h-52 overflow-hidden">
                   <img src={s.img} alt={s.title} className="w-full h-full object-cover img-zoom" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#03070f]/80 to-transparent" />
                 </div>
                 <div className="p-7 relative">
                   <div className="text-3xl mb-3">{s.icon}</div>
-                  <h3 className="font-display text-xl font-semibold text-white mb-2">{s.title}</h3>
-                  <p className="text-white/75 text-sm leading-relaxed">{s.desc}</p>
+                  <h3 className="font-display text-xl font-semibold text-[#10231c] mb-2">{s.title}</h3>
+                  <p className="text-[#10231c]/75 text-sm leading-relaxed">{s.desc}</p>
                   <div className="mt-4 flex items-center gap-2 text-[#10b981] text-xs font-bold tracking-wide uppercase">
                     Learn more
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
@@ -473,7 +473,7 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <div className="text-[#10b981] text-xs font-bold tracking-[0.3em] uppercase mb-4">Client Stories</div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-[#10231c]">
               Trusted by <span className="italic gold-text">Thousands</span>
             </h2>
           </div>
@@ -483,8 +483,8 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
               {testimonials.map((t, i) => (
                 <div
                   key={t.name}
-                  className={`glass-dark rounded-3xl p-7 testimonial-card transition-all duration-700 border ${
-                    testimonialsSlide === i ? "border-[#10b981]/60 shadow-[0_0_40px_rgba(16,185,129,0.18)]" : "border-[#10b981]/20 shadow-[0_0_12px_rgba(16,185,129,0.08)]"
+                  className={`testimonial-card rounded-3xl p-7 transition-all duration-700 ${
+                    testimonialsSlide === i ? "border-[#10b981]/50" : "border-[#10b981]/20"
                   }`}
                 >
                   <div className="flex gap-0.5 mb-4">
@@ -492,13 +492,13 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
                       <svg key={s} width="14" height="14" viewBox="0 0 12 12" fill="#10b981"><path d="M6 0l1.5 3.5L11 4.5l-2.5 2.4.6 3.5L6 8.7 2.9 10.4l.6-3.5L1 4.5l3.5-1z"/></svg>
                     ))}
                   </div>
-                  <p className="text-white/65 text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
+                  <p className="text-[#10231c]/65 text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full overflow-hidden border border-[#10b981]/30">
                       <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
                     </div>
                     <div>
-                      <div className="text-white text-sm font-semibold">{t.name}</div>
+                      <div className="text-[#10231c] text-sm font-semibold">{t.name}</div>
                       <div className="text-[#10b981]/70 text-xs">{t.pet}</div>
                     </div>
                   </div>
@@ -513,7 +513,7 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
                   key={i}
                   onClick={() => setTestimonialsSlide(i)}
                   className={`rounded-full transition-all duration-400 ${
-                    testimonialsSlide === i ? "w-8 h-2 bg-[#10b981]" : "w-2 h-2 bg-white/20"
+                    testimonialsSlide === i ? "w-8 h-2 bg-[#10b981]" : "w-2 h-2 bg-[#10b981]/30"
                   }`}
                 />
               ))}
@@ -524,14 +524,14 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
 
       {/* ── CTA BANNER ── */}
       <section className="py-24 px-6">
-        <div className="max-w-5xl mx-auto glass-gold rounded-3xl p-12 md:p-16 text-center relative overflow-hidden">
+        <div className="max-w-5xl mx-auto glass-gold rounded-3xl p-12 md:p-16 text-center relative overflow-hidden" style={{boxShadow:'0 16px 60px rgba(16, 185, 129, 0.25), 0 8px 24px rgba(16, 35, 28, 0.1)'}}>
           <div className="orb w-72 h-72 -top-16 -right-16 bg-[#10b981]/8" />
           <div className="orb w-48 h-48 -bottom-10 -left-10 bg-[#10b981]/5" />
           <div className="relative z-10">
-            <div className="font-display text-4xl md:text-5xl font-bold text-white mb-5">
+            <div className="font-display text-4xl md:text-5xl font-bold text-[#10231c] mb-5">
               Your Animals' Health is Our <span className="italic gold-text">Priority</span>
             </div>
-            <p className="text-white/50 mb-10 max-w-xl mx-auto leading-relaxed">
+            <p className="text-[#10231c]/50 mb-10 max-w-xl mx-auto leading-relaxed">
               Don't wait until it's urgent. Book a farm visit or wellness check today and give your animals the proactive care they deserve.
             </p>
             <button
@@ -556,16 +556,16 @@ function AboutPage({ setPage }: { setPage: (p: Page) => void }) {
         <div className="grid md:grid-cols-2 gap-16 items-center mb-28">
           {/* Image col */}
           <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden" style={{ aspectRatio: "3/4", background: "#0e1a2e" }}>
+            <div className="relative rounded-3xl overflow-hidden" style={{ aspectRatio: "3/4", background: "#eef2f0" }}>
               <img src={IMG.doctorHero} alt="Dr. Okello Joseph" className="w-full h-full object-cover img-zoom" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#03070f]/70 via-transparent to-transparent" />
             </div>
 
             {/* Credentials badge */}
-            <div className="absolute -bottom-8 -right-6 glass-dark rounded-2xl p-6 w-52 animate-float">
+            <div className="absolute -bottom-8 -right-6 contact-card rounded-2xl p-6 w-52 animate-float">
               <div className="text-[#10b981] text-xs font-bold tracking-widest uppercase mb-3">Certifications</div>
               {["BVM — Makerere University", "Licensed, UVB", "UVA Member", "Continuing Vet Education"].map(c => (
-                <div key={c} className="flex items-center gap-2 text-white/70 text-xs py-1">
+                <div key={c} className="flex items-center gap-2 text-[#10231c]/70 text-xs py-1">
                   <span className="w-1 h-1 rounded-full bg-[#10b981]" />{c}
                 </div>
               ))}
@@ -578,11 +578,11 @@ function AboutPage({ setPage }: { setPage: (p: Page) => void }) {
           {/* Text col */}
           <div>
             <div className="text-[#10b981] text-xs font-bold tracking-[0.3em] uppercase mb-4">The Doctor</div>
-            <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="font-display text-5xl md:text-6xl font-bold text-[#10231c] mb-6 leading-tight">
               Dr. <span className="italic gold-text">Okello Joseph</span>
             </h1>
             <div className="gold-line w-20 mb-8" />
-            <div className="space-y-5 text-white/55 leading-relaxed">
+            <div className="space-y-5 text-[#10231c]/75 leading-relaxed">
               <p>
                 Dr. Okello Joseph is a Ugandan veterinarian trained at Makerere University, where he earned his Bachelor of Veterinary Medicine (BVM). His interest in animal health started at home, growing up around livestock, and it grew into a full calling for treating and protecting animals across Kampala and the surrounding districts.
               </p>
@@ -607,7 +607,7 @@ function AboutPage({ setPage }: { setPage: (p: Page) => void }) {
         <div className="mb-24">
           <div className="text-center mb-14">
             <div className="text-[#10b981] text-xs font-bold tracking-[0.3em] uppercase mb-4">Career Journey</div>
-            <h2 className="font-display text-4xl font-bold text-white">A Path of <span className="italic gold-text">Excellence</span></h2>
+            <h2 className="font-display text-4xl font-bold text-[#10231c]">A Path of <span className="italic gold-text">Excellence</span></h2>
             <div className="gold-line w-16 mx-auto mt-5" />
           </div>
 
@@ -629,10 +629,10 @@ function AboutPage({ setPage }: { setPage: (p: Page) => void }) {
               >
                 <div className={`hidden md:block flex-1 ${i % 2 === 0 ? "text-right pr-8" : "pl-8"}`}>
                   {i % 2 === 0 && (
-                    <div className="glass-dark rounded-2xl p-5 inline-block text-left card-hover border border-white/5">
+                    <div className="timeline-card rounded-2xl p-5 inline-block text-left">
                       <div className="text-[#10b981] text-xs font-bold mb-1 tracking-widest">{ev.year}</div>
-                      <div className="font-display text-lg font-semibold text-white">{ev.title}</div>
-                      <p className="text-white/45 text-sm mt-1">{ev.desc}</p>
+                      <div className="font-display text-lg font-semibold text-[#10231c]">{ev.title}</div>
+                      <p className="text-[#10231c]/45 text-sm mt-1">{ev.desc}</p>
                     </div>
                   )}
                 </div>
@@ -643,10 +643,10 @@ function AboutPage({ setPage }: { setPage: (p: Page) => void }) {
                 </div>
 
                 <div className={`flex-1 ${i % 2 === 0 ? "pl-8 md:hidden" : "pl-8 md:pl-8"}`}>
-                  <div className="glass-dark rounded-2xl p-5 inline-block card-hover border border-white/5">
+                  <div className="timeline-card rounded-2xl p-5 inline-block">
                     <div className="text-[#10b981] text-xs font-bold mb-1 tracking-widest">{ev.year}</div>
-                    <div className="font-display text-lg font-semibold text-white">{ev.title}</div>
-                    <p className="text-white/45 text-sm mt-1">{ev.desc}</p>
+                    <div className="font-display text-lg font-semibold text-[#10231c]">{ev.title}</div>
+                    <p className="text-[#10231c]/45 text-sm mt-1">{ev.desc}</p>
                   </div>
                 </div>
 
@@ -662,8 +662,8 @@ function AboutPage({ setPage }: { setPage: (p: Page) => void }) {
         <div className="glass-gold rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
           <div className="orb w-96 h-96 -top-20 -left-20 bg-[#10b981]/6" />
           <div className="relative z-10 max-w-2xl mx-auto">
-            <div className="text-6xl mb-6 opacity-30 font-display">"</div>
-            <p className="font-display text-2xl md:text-3xl font-light italic text-white leading-relaxed mb-8">
+            <div className="text-6xl mb-6 opacity-20 font-display">"</div>
+            <p className="font-display text-2xl md:text-3xl font-light italic text-[#10231c] leading-relaxed mb-8">
               Medicine is a science, but healing is an art. My job isn't just to diagnose — it's to listen, to understand, and to care for the whole farm or family, not just the patient.
             </p>
             <div className="text-[#10b981] font-semibold tracking-wide text-sm">— Dr. Okello Joseph, BVM</div>
@@ -736,10 +736,10 @@ function ServicesPage({ setPage }: { setPage: (p: Page) => void }) {
           <div className="orb w-80 h-80 top-[-60px] left-1/2 -translate-x-1/2 bg-[#10b981]/5" />
           <div className="relative z-10">
             <div className="text-[#10b981] text-xs font-bold tracking-[0.3em] uppercase mb-4">What I Offer</div>
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-white mb-4">
+            <h1 className="font-display text-5xl md:text-7xl font-bold text-[#10231c] mb-4">
               My <span className="italic gold-text">Services</span>
             </h1>
-            <p className="text-white/45 max-w-xl mx-auto leading-relaxed">
+            <p className="text-[#10231c]/55 max-w-xl mx-auto leading-relaxed">
               Every procedure, every consultation, every follow-up — performed with the same level of precision and care we'd give our own animals.
             </p>
             <div className="gold-line w-20 mx-auto mt-8" />
@@ -750,8 +750,8 @@ function ServicesPage({ setPage }: { setPage: (p: Page) => void }) {
           {services.map((s, i) => (
             <div
               key={s.title}
-              className={`glass rounded-3xl overflow-hidden card-hover cursor-pointer border transition-all duration-500 ${
-                active === i ? "border-[#10b981]/50 shadow-[0_0_60px_rgba(16,185,129,0.12)]" : "border-white/5"
+              className={`service-card rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ${
+                active === i ? "border-[#10b981]/50" : "border-transparent"
               }`}
               onClick={() => setActive(active === i ? null : i)}
             >
@@ -766,8 +766,8 @@ function ServicesPage({ setPage }: { setPage: (p: Page) => void }) {
               </div>
 
               <div className="p-7">
-                <h3 className="font-display text-xl font-semibold text-white mb-2">{s.title}</h3>
-                <p className="text-white/45 text-sm leading-relaxed mb-4">{s.desc}</p>
+                <h3 className="font-display text-xl font-semibold text-[#10231c] mb-2">{s.title}</h3>
+                <p className="text-[#10231c]/55 text-sm leading-relaxed mb-4">{s.desc}</p>
 
                 {/* Expandable details */}
                 <div
@@ -778,7 +778,7 @@ function ServicesPage({ setPage }: { setPage: (p: Page) => void }) {
                     <div className="text-[#10b981] text-xs font-bold tracking-widest uppercase mb-3">Included</div>
                     <ul className="space-y-1.5">
                       {s.details.map(d => (
-                        <li key={d} className="flex items-center gap-2 text-white/55 text-sm">
+                        <li key={d} className="flex items-center gap-2 text-[#10231c]/55 text-sm">
                           <span className="w-1 h-1 rounded-full bg-[#10b981] flex-shrink-0" />
                           {d}
                         </li>
@@ -807,7 +807,7 @@ function ServicesPage({ setPage }: { setPage: (p: Page) => void }) {
 
         {/* Bottom CTA */}
         <div className="text-center mt-20">
-          <p className="text-white/40 mb-6 text-sm">Not sure which service is right for your animal?</p>
+          <p className="text-[#10231c]/40 mb-6 text-sm">Not sure which service is right for your animal?</p>
           <button
             onClick={() => setPage("contact")}
             className="btn-gold px-10 py-4 rounded-full text-sm"
@@ -852,14 +852,14 @@ function GalleryPage() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
           <div className="text-[#10b981] text-xs font-bold tracking-[0.3em] uppercase mb-4">My Patients</div>
-          <h1 className="font-display text-5xl md:text-7xl font-bold text-white">
+          <h1 className="font-display text-5xl md:text-7xl font-bold text-[#10231c]">
             Stories in <span className="italic gold-text">Pictures</span>
           </h1>
           <div className="gold-line w-20 mx-auto mt-6" />
         </div>
 
         {/* Featured slideshow */}
-        <div className="relative rounded-3xl overflow-hidden mb-8" style={{ height: "460px", background: "#0e1a2e" }}>
+        <div className="relative rounded-3xl overflow-hidden mb-8" style={{ height: "460px", background: "#eef2f0" }}>
           {galleryImages.map((img, i) => (
             <div key={i} className={`slideshow-item ${i === featured ? "active" : ""}`}>
               <img src={img.src} alt={img.label} className="w-full h-full object-cover" />
@@ -877,7 +877,7 @@ function GalleryPage() {
                   key={i}
                   onClick={() => setFeatured(i)}
                   className={`rounded-full transition-all duration-400 ${
-                    i === featured ? "w-8 h-2 bg-[#10b981]" : "w-2 h-2 bg-white/30"
+                    i === featured ? "w-8 h-2 bg-[#10b981]" : "w-2 h-2 bg-[#10b981]/30"
                   }`}
                 />
               ))}
@@ -890,7 +890,7 @@ function GalleryPage() {
           {galleryImages.map((img, i) => (
             <div
               key={i}
-              className={`gallery-item relative rounded-2xl overflow-hidden cursor-pointer border-2 transition-all duration-400 ${
+              className={`gallery-card relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-400 ${
                 i === featured ? "border-[#10b981]/60" : "border-transparent"
               }`}
               style={{ aspectRatio: "1" }}
@@ -899,14 +899,14 @@ function GalleryPage() {
               <img src={img.src} alt={img.label} className="w-full h-full object-cover" />
               <div className="overlay absolute inset-0 bg-[#10b981]/20 flex items-center justify-center">
                 <div className="glass rounded-xl px-3 py-2 text-center">
-                  <div className="text-white text-xs font-semibold">{img.label}</div>
+                  <div className="text-[#10231c] text-xs font-semibold">{img.label}</div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <p className="text-center text-white/25 text-xs mt-8 tracking-widest uppercase">Click any photo to enlarge · Arrow keys to navigate</p>
+        <p className="text-center text-[#10231c]/25 text-xs mt-8 tracking-widest uppercase">Click any photo to enlarge · Arrow keys to navigate</p>
       </div>
 
       {/* Lightbox */}
@@ -996,7 +996,7 @@ function ContactPage() {
         <div className="text-center mb-16">
           <div className="text-[#10b981] text-xs font-bold tracking-[0.3em] uppercase mb-4">Reach Out</div>
           <h1 className="font-display text-5xl md:text-7xl font-bold">
-            <span className="text-white font-bold">Book an </span><span className="italic gold-text">Appointment</span>
+            <span className="text-[#10231c] font-bold">Book an </span><span className="italic gold-text">Appointment</span>
           </h1>
           <div className="gold-line w-20 mx-auto mt-6" />
         </div>
@@ -1005,71 +1005,71 @@ function ContactPage() {
           {/* Info col */}
           <div className="md:col-span-2 space-y-6">
             {/* Doctor card */}
-            <div className="glass-dark rounded-3xl overflow-hidden border border-[#10b981]/15">
+            <div className="contact-card rounded-3xl overflow-hidden">
               <div className="relative h-56 overflow-hidden">
                 <img src={IMG.doctorHero2} alt="Dr. Okello Joseph" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#03070f]/80 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <div className="font-display text-xl font-semibold text-white">Dr. Okello Joseph</div>
-                  <div className="text-[#10b981] text-xs tracking-widest uppercase mt-0.5">BVM · Makerere University</div>
+                  <div className="text-[#10b981] text-xs tracking-widest uppercase mt-0.5 font-semibold">BVM · Makerere University</div>
                 </div>
               </div>
               <div className="p-6 space-y-4">
                 <div className="flex gap-3 items-start">
                   <IconBox><PhoneIcon /></IconBox>
                   <div>
-                                        <a href="tel:+256775560027" className="text-white/70 text-sm hover:text-[#10b981] transition-colors block">+256 775 560027</a>
+                                        <a href="tel:+256775560027" className="text-[#10231c]/70 text-sm hover:text-[#10b981] transition-colors block">+256 775 560027</a>
                     <a href="tel:+256775560027" className="inline-flex items-center gap-1 mt-1.5 text-[#10b981] text-xs font-bold border border-[#10b981]/40 rounded-full px-3 py-1 hover:bg-[#10b981]/10 transition-colors">Call Now →</a>
                   </div>
                 </div>
                 <div className="flex gap-3 items-start">
                   <IconBox><WaIcon /></IconBox>
                   <div>
-                                        <div className="text-white/70 text-sm">+256 704 220704</div>
+                                        <div className="text-[#10231c]/70 text-sm">+256 704 220704</div>
                     <a href="https://wa.me/256704220704" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 mt-1.5 text-[#10b981] text-xs font-bold border border-[#10b981]/40 rounded-full px-3 py-1 hover:bg-[#10b981]/10 transition-colors">Message Now →</a>
                   </div>
                 </div>
                 <div className="flex gap-3 items-start">
                   <IconBox><EmailIcon /></IconBox>
                   <div>
-                                        <a href="mailto:okellojoseph1410@gmail.com" className="text-white/70 text-sm hover:text-[#10b981] transition-colors break-all">okellojoseph1410@gmail.com</a>
+                                        <a href="mailto:okellojoseph1410@gmail.com" className="text-[#10231c]/70 text-sm hover:text-[#10b981] transition-colors break-all">okellojoseph1410@gmail.com</a>
                     <a href="mailto:okellojoseph1410@gmail.com" className="inline-flex items-center gap-1 mt-1.5 text-[#10b981] text-xs font-bold border border-[#10b981]/40 rounded-full px-3 py-1 hover:bg-[#10b981]/10 transition-colors">Email Me →</a>
                   </div>
                 </div>
                 <div className="flex gap-3 items-start">
                   <IconBox><IgIcon /></IconBox>
                   <div>
-                                        <a href="https://instagram.com/oj.doc" target="_blank" rel="noreferrer" className="text-white/70 text-sm hover:text-[#10b981] transition-colors">@oj.doc</a>
+                                        <a href="https://instagram.com/oj.doc" target="_blank" rel="noreferrer" className="text-[#10231c]/70 text-sm hover:text-[#10b981] transition-colors">@oj.doc</a>
                   </div>
                 </div>
                 <div className="flex gap-3 items-start">
                   <IconBox><TtIcon /></IconBox>
                   <div>
-                                        <a href="https://tiktok.com/@oj.doc.jo" target="_blank" rel="noreferrer" className="text-white/70 text-sm hover:text-[#10b981] transition-colors">@oj.doc.jo</a>
+                                        <a href="https://tiktok.com/@oj.doc.jo" target="_blank" rel="noreferrer" className="text-[#10231c]/70 text-sm hover:text-[#10b981] transition-colors">@oj.doc.jo</a>
                   </div>
                 </div>
                 <div className="flex gap-3 items-start">
                   <IconBox><ClockIcon /></IconBox>
                   <div>
-                                        <div className="text-white/70 text-sm">Mon–Sat 8am–7pm<br/>Farm calls by appointment</div>
+                                        <div className="text-[#10231c]/70 text-sm">Mon–Sat 8am–7pm<br/>Farm calls by appointment</div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Social proof */}
-            <div className="glass rounded-2xl p-6 border border-[#10b981]/20">
+            <div className="contact-card rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-3">
                 {[1,2,3,4,5].map(s => <svg key={s} width="14" height="14" viewBox="0 0 12 12" fill="#10b981"><path d="M6 0l1.5 3.5L11 4.5l-2.5 2.4.6 3.5L6 8.7 2.9 10.4l.6-3.5L1 4.5l3.5-1z"/></svg>)}
-                <span className="text-white/50 text-xs ml-1">5.0 · 120 reviews</span>
+                <span className="text-[#10231c]/50 text-xs ml-1">5.0 · 120 reviews</span>
               </div>
-              <p className="text-white/70 text-sm italic leading-relaxed">"Getting an appointment was easy and Dr. Okello Joseph remembered every detail from our last farm visit. Absolutely reliable."</p>
-              <div className="text-white/55 text-xs mt-3">— Nabirye Sarah (Goat farmer)</div>
+              <p className="text-[#10231c]/70 text-sm italic leading-relaxed">"Getting an appointment was easy and Dr. Okello Joseph remembered every detail from our last farm visit. Absolutely reliable."</p>
+              <div className="text-[#10231c]/55 text-xs mt-3">— Nabirye Sarah (Goat farmer)</div>
             </div>
           </div>
 
           {/* Form col */}
-          <div className="md:col-span-3 glass-dark rounded-3xl p-8 md:p-10 border border-[#10b981]/10">
+          <div className="md:col-span-3 contact-card rounded-3xl p-8 md:p-10">
             {sent ? (
               <div className="text-center py-16 animate-scale-in">
                 <div className="text-6xl mb-4 animate-float">🐾</div>
@@ -1084,7 +1084,7 @@ function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <h2 className="font-display text-2xl font-semibold text-white mb-6">Request an Appointment</h2>
+                <h2 className="font-display text-2xl font-semibold text-[#10231c] mb-6">Request an Appointment</h2>
 
                 <div className="grid md:grid-cols-2 gap-5">
                   <div>
@@ -1122,7 +1122,7 @@ function ContactPage() {
                   Send via WhatsApp →
                 </button>
 
-                <p className="text-white/60 text-xs text-center">
+                <p className="text-[#10231c]/60 text-xs text-center">
                   Opens WhatsApp with your details pre-filled · Your information is kept private
                 </p>
               </form>
@@ -1137,7 +1137,7 @@ function ContactPage() {
 // ─── FOOTER ────────────────────────────────────────────────────────────────
 function Footer({ setPage }: { setPage: (p: Page) => void }) {
   return (
-    <footer className="border-t border-[#10b981]/10 py-14 px-6" style={{ background: "rgba(3,7,15,0.95)" }}>
+    <footer className="border-t border-[#10b981]/20 py-14 px-6" style={{ background: "rgba(3,7,15,0.98)" }}>
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
