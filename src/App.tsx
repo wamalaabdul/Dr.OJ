@@ -8,6 +8,7 @@ import img5 from "./images/img5.jpg";
 import img6 from "./images/img6.jpg";
 import img7 from "./images/img7.jpg";
 import img8 from "./images/img8.jpg";
+import puppy from "./images/puppy.jpg";
 
 const IMG = {
   doctorHero:   doctorLab,
@@ -22,6 +23,7 @@ const IMG = {
   dogCat:       img7,
   cat:          goatVet,
   instruments:  img6,
+  puppy:        puppy,
 };
 
 type Page = "home" | "about" | "services" | "gallery" | "contact";
@@ -445,7 +447,7 @@ function HomePage({ setPage }: { setPage: (p: Page) => void }) {
                 icon: "🐕",
                 title: "Small Animal Care",
                 desc: "Wellness exams, treatment, and preventive care for dogs, cats and other household pets.",
-                img: IMG.clinic,
+                img: IMG.puppy,
               },
             ].map((s) => (
               <div key={s.title} className="service-card rounded-3xl overflow-hidden cursor-pointer" onClick={() => setPage("services")}>
@@ -708,7 +710,7 @@ function ServicesPage({ setPage }: { setPage: (p: Page) => void }) {
       title: "Small Animal Care",
       tagline: "For dogs, cats & home pets",
       desc: "Diagnosis and treatment for common illnesses and injuries in household pets, with guidance on everyday care at home.",
-      img: IMG.clinic,
+      img: IMG.puppy,
       details: ["Illness diagnosis", "Wound treatment", "Minor procedures", "Deworming & vaccination", "Home care guidance"],
     },
     {
